@@ -20,4 +20,8 @@ router.get("/create-new-media", (req, res, next) => {
   res.render("media/create-new-media");
 });
 
+router.get("/create-new-review", (req, res, next) => {
+  res.render("media/create-new-review");
+});
+
 module.exports = router;
