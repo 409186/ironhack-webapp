@@ -6,7 +6,7 @@ const mediaSchema = new Schema(
             type:String,
             required: true
         },
-        Category: {
+        category: {
             type: String,
             required: true,
             enum: ["Anime", "Music", "Documentary", "Movie"],
