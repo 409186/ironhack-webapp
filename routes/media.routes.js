@@ -56,10 +56,11 @@ router.get("/create-new-review", (req, res, next) => {
   res.render("media/create-new-review");
 });
 
-router.post("/create-new-review",  (req, res, next) =>{
-  
-})
-
+router.post("/create-new-review", (req, res, next) => {
+  Review.create(req.body)
+  .then(res.redirect("/"))
+  .catch(console.log);
+});
 
 //EXPORTS
 module.exports = router;

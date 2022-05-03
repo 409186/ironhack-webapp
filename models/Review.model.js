@@ -4,10 +4,15 @@ const reviewSchema = new Schema(
   {
     username: {
       type: String,
-      required: true,
     },
 
-    comment: {
+    mediaId: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+
+    review: {
       type: String,
     },
 

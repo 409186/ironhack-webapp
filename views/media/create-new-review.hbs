@@ -1,16 +1,34 @@
-<div>
-    <form action="/create-new-review"  method="post">
-        <label> Comment
-            <input type="text" name="comment">
-        </label>
-        <label>
-            <select name="qualify">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-        </label>
-    </form>
+<div id="form-review">
+  <form action="/media/create-new-review" method="POST">
+
+    <label>
+      Media Name
+    </label>
+    <input type="text" name="mediaId" required />
+
+    <br />
+    <br />
+
+    <label for="review">Review:</label>
+    <br />
+    <textarea id="review" name="review" rows="12" cols="50"></textarea>
+    <br />
+
+    <br />
+    <br />
+
+    <label for="quantity">Calification (out of 5):</label>
+    <input id="quantity" type="number" name="calification" min="1" max="5" />
+
+    <br />
+    <br />
+
+    <br />
+    <label for="html">Loved it!</label>
+    <input type="radio" id="like" name="like" value="true" />
+
+    <br />
+    <button type="submit">Review!</button>
+
+  </form>
 </div>
