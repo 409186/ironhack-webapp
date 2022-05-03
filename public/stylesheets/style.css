@@ -10,3 +10,10 @@ a {
 h1 {
   color: 15px;
 }
+
+#Memory {
+  font-size: 20px;
+  background-color: rgb(91, 22, 122);
+  border: none;
+  color: white;
+}
