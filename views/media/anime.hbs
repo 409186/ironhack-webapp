@@ -1,8 +1,11 @@
 Anime page!
-{{#each .}}
-<h2>{{name}}</h2>
-<p>{{description}}</p>
-<p>{{genre}}</p>
-<p>{{year}}</p>
-<p>{{director}}</p>
+{{#each animesData}}
+  <h2>{{name}}</h2>
+  <p>{{description}}</p>
+  <p>{{genre}}</p>
+  <p>{{year}}</p>
+  <p>{{director}}</p>
+
+  <a href="/media/{{id}}">Create a Review</a>
+
 {{/each}}
