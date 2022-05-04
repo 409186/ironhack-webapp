@@ -8,29 +8,29 @@ const Review = require("../models/Review.model");
 
 //ROUTER MEDIA
 router.get("/movies", (req, res, next) => {
-  Media.find({ category: "Movie" }).then((movieData) => {
-    res.render("media/movies", movieData);
+  Media.find({ category: "Movie" }).then((moviesData) => {
+    res.render("media/movies", moviesData);
   });
 });
 
 //ROUTER ANIME
 router.get("/anime", (req, res, next) => {
-  Media.find({ category: "Anime" }).then((animeData) => {
-    res.render("media/anime", animeData);
+  Media.find({ category: "Anime" }).then((animesData) => {
+    res.render("media/anime", animesData);
   });
 });
 
 //ROUTER MUSIC
 router.get("/music", (req, res, next) => {
-  Media.find({ category: "Music" }).then((musicData) => {
-    res.render("media/music", musicData);
+  Media.find({ category: "Music" }).then((musicsData) => {
+    res.render("media/music", musicsData);
   });
 });
 
 //ROUTER DOCUMENTARIES
 router.get("/documentaries", (req, res, next) => {
-  Media.find({ category: "Documentary" }).then((documentaryData) => {
-    res.render("media/documentaries", documentaryData);
+  Media.find({ category: "Documentary" }).then((documentariesData) => {
+    res.render("media/documentaries", documentariesData);
   });
 });
 
@@ -65,7 +65,14 @@ router.get("/create-new-review", (req, res, next) => {
 });
 
 router.post("/create-new-review", (req, res, next) => {
-  Review.create(req.body).then(res.redirect("/")).catch(console.log);
+  Review.create(req.body).then(res.redirect("/"));
+});
+
+//ROUTER FOR INDIVIDUAL MEDIA
+router.get("/:media", (req, res, next) => {
+  Media.findById("627299275b7a4d35524ab53e").then((mediaData) => {
+    res.render("media/media-page", mediaData);
+  });
 });
 
 //EXPORTS
