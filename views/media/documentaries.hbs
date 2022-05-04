@@ -1,8 +1,10 @@
 Documentary page!
 {{#each documentariesData}}
-<h2>{{name}}</h2>
-<p>{{description}}</p>
-<p>{{genre}}</p>
-<p>{{year}}</p>
-<p>{{director}}</p>
+  <h2>{{name}}</h2>
+  <p>{{description}}</p>
+  <p>{{genre}}</p>
+  <p>{{year}}</p>
+  <p>{{director}}</p>
+  <img src="{{imageUrl}}" alt="Pokemon" />
+  <a href="/media/{{id}}">Create a Review</a>
 {{/each}}
