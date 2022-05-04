@@ -1,6 +1,7 @@
 //REQUIRE VARIABLES
 const router = require("express").Router();
 const mongoose = require("mongoose");
+const fileUploader = require('../config/cloudinary.config');
 
 //IMPORT MODELS
 const Media = require("../models/Media.model");
@@ -39,9 +40,11 @@ router.get("/create-new-media", (req, res, next) => {
   res.render("media/create-new-media");
 });
 
-router.post("/create-new-media", (req, res, next) => {
-  console.log("body =>", req.body);
-  Media.create(req.body)
+router.post("/create-new-media", fileUploader.single('imageUrl'), (req, res, next) => {
+  console.log("body =>", req);
+  console.log("req.body =>", req.body);
+  console.log("req.file =>", req.file)
+  Media.create({...req.body, imageUrl: path })
     .then((newMedia) => {
       console.log("New Media =>", newMedia);
       if (newMedia.category === "Documentary") {

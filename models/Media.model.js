@@ -28,6 +28,9 @@ const mediaSchema = new Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String
+    }
   },
   {
     timestamps: true,

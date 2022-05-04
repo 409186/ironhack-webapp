@@ -1,5 +1,5 @@
 <div id="form-media">
-    <form action="/media/create-new-media" method="POST">
+    <form action="/media/create-new-media" method="POST" enctype="multipart/form-data">
     <label> Name
       <input type="text" name="name" required>
     </label>
@@ -25,15 +25,21 @@
     </label>
       <br>
       <br>
-      <label> Year
+    <label> Year
       <input type="date" name="year" required>
     </label>
       <br>
       <br>
-      <label> Director
+    <label> Director
       <input type="text" name="director" required>
     </label>
-
+      <br>
+      <br>
+    <label>Image
+      <input type="file" name="imageUrl" accept="image/*">
+    </label>
+      <br>
+      <br>
         <button type="submit">Create</button>
     </form>
 </div>
