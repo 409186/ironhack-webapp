@@ -2,8 +2,8 @@ const { Schema, model } = require("mongoose");
 
 const reviewSchema = new Schema(
   {
-    username: {
-      type: String,
+    User_Id: {
+      type: String
     },
 
     mediaId: {

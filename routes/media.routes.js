@@ -8,22 +8,30 @@ const Review = require("../models/Review.model");
 
 //ROUTER MEDIA
 router.get("/movies", (req, res, next) => {
-  res.render("media/movies");
+  Media.find({ category: "Movie" }).then((movieData) => {
+    res.render("media/movies", movieData);
+  });
 });
 
 //ROUTER ANIME
 router.get("/anime", (req, res, next) => {
-  res.render("media/anime");
+  Media.find({ category: "Anime" }).then((animeData) => {
+    res.render("media/anime", animeData);
+  });
 });
 
 //ROUTER MUSIC
 router.get("/music", (req, res, next) => {
-  res.render("media/music");
+  Media.find({ category: "Music" }).then((musicData) => {
+    res.render("media/music", musicData);
+  });
 });
 
 //ROUTER DOCUMENTARIES
 router.get("/documentaries", (req, res, next) => {
-  res.render("media/documentaries");
+  Media.find({ category: "Documentary" }).then((documentaryData) => {
+    res.render("media/documentaries", documentaryData);
+  });
 });
 
 //ROUTER CREATE-NEW-MEDIA
@@ -57,9 +65,7 @@ router.get("/create-new-review", (req, res, next) => {
 });
 
 router.post("/create-new-review", (req, res, next) => {
-  Review.create(req.body)
-  .then(res.redirect("/"))
-  .catch(console.log);
+  Review.create(req.body).then(res.redirect("/")).catch(console.log);
 });
 
 //EXPORTS
