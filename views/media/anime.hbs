@@ -1,10 +1,15 @@
-Anime page!
+<h1>Anime</h1>
+<br>
+<br>
 {{#each animesData}}
   <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>{{genre}}</p>
   <p>{{year}}</p>
   <p>{{director}}</p>
-  <img src="{{imageUrl}}" alt="Pokemon">
+  <img src="{{imageUrl}}" alt="Pokemon" width="150" height="220">
+  <br>
+  <br>
   <a href="/media/{{id}}">Create a Review</a>
+  <hr>
 {{/each}}
