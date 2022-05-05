@@ -9,9 +9,6 @@ cloudinary.config({
   secure: true
 });
  
- console.log(process.env.CLOUDINARY_NAME,
-  process.env.CLOUDINARY_KEY,
-  process.env.CLOUDINARY_SECRET)
   
 const storage = new CloudinaryStorage({
   // cloudinary: cloudinary,
@@ -23,6 +20,5 @@ const storage = new CloudinaryStorage({
   }
 });
  
-console.log(storage, cloudinary.config)
 //                     storage: storage
 module.exports = multer({ storage });

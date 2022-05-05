@@ -3,6 +3,10 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const fileUploader = require("../config/cloudinary.config");
 
+//MIDDLEWARE
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isLoggedIn = require("../middleware/isLoggedIn");
+
 //IMPORT MODELS
 const Media = require("../models/Media.model");
 const Review = require("../models/Review.model");
@@ -37,7 +41,7 @@ router.get("/documentaries", (req, res, next) => {
 });
 
 //ROUTER CREATE-NEW-MEDIA
-router.get("/create-new-media", (req, res, next) => {
+router.get("/create-new-media", isLoggedIn, (req, res, next) => {
   res.render("media/create-new-media");
 });
 
@@ -45,9 +49,6 @@ router.post(
   "/create-new-media",
   fileUploader.single("imageUrl"),
   (req, res, next) => {
-    console.log("body =>", req);
-    console.log("req.body =>", req.body);
-    console.log("req.file =>", req.file);
     const { path } = req.file;
     Media.create({ ...req.body, imageUrl: path })
       .then((newMedia) => {
@@ -69,7 +70,7 @@ router.post(
 );
 
 //ROUTER CREATE-NEW-REVIEW
-router.get("/create-new-review", (req, res, next) => {
+router.get("/create-new-review", isLoggedIn, (req, res, next) => {
   res.render("media/create-new-review");
 });
 
