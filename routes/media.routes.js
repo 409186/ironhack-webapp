@@ -17,6 +17,9 @@ const { findByIdAndUpdate } = require("../models/Media.model");
 //ROUTER MEDIA
 router.get("/movies", (req, res, next) => {
   Media.find({ category: "Movie" }).then((moviesData) => {
+    moviesData.forEach((data)=>{
+      data.description = data.description.slice(0,100) + "..."
+    })
     res.render("media/movies", {moviesData});
   });
 });
@@ -24,20 +27,31 @@ router.get("/movies", (req, res, next) => {
 //ROUTER ANIME
 router.get("/anime", (req, res, next) => {
   Media.find({ category: "Anime" }).then((animesData) => {
+    animesData.forEach((data)=>{
+      data.description = data.description.slice(0,100) + "..."
+    })
     res.render("media/anime", {animesData});
   });
 });
 
 //ROUTER MUSIC
 router.get("/music", (req, res, next) => {
-  Media.find({ category: "Music" }).then((musicsData) => {
+  Media.find({ category: "Music" })
+  .then((musicsData) => {
+    musicsData.forEach((data)=>{
+      data.description = data.description.slice(0,100) + "..."
+    })
     res.render("media/music", {musicsData});
   });
 });
 
 //ROUTER DOCUMENTARIES
 router.get("/documentaries", (req, res, next) => {
-  Media.find({ category: "Documentary" }).then((documentariesData) => {
+  Media.find({ category: "Documentary" })
+  .then((documentariesData) => {
+    documentariesData.forEach((data)=>{
+      data.description = data.description.slice(0,100) + "..."
+    })
     res.render("media/documentaries", {documentariesData});
   });
 });
