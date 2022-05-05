@@ -2,7 +2,18 @@
 <br>
 <br>
 {{#each moviesData}}
-  <h2>{{name}}</h2>
+<div class="card" style="width:400px">
+  <img class="card-img-top" src="{{imageUrl}}" alt="Card image">
+  <div class="card-body">
+    <h2 class="card-title">{{name}}</h2>
+    <p class="card-text">{{description}}</p>
+    <p class="card-text">{{genre}}</p>
+    <p class="card-text">{{year}}</p>
+    <p class="card-text">{{director}}</p>
+    <a href="/media/{{id}}" class="btn btn-primary">Create a Review</a>
+  </div>
+</div>
+  {{!-- <h2>{{name}}</h2>
   <p>{{description}}</p>
   <p>{{genre}}</p>
   <p>{{year}}</p>
@@ -10,5 +21,5 @@
   <img src="{{imageUrl}}" alt="Pokemon" width="150" height="220">
   <br>
   <br>
-  <a href="/media/{{id}}">Create a Review</a>
+  <a href="/media/{{id}}">Create a Review</a> --}}
 {{/each}}
