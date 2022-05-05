@@ -1,13 +1,17 @@
 <div>
    <form action="/auth/login" method="POST">
-      <label> Username
-         <input type="text" name="username" required>
-      </label>
-      <label> Password
-         <input type="password" name="password" required>
-      </label>
+      <div class="mb-3 mt-3">
+         <label> Username
+            <input type="text" class="form-control" name="username" required>
+         </label>
+      </div>
+      <div class="mb-3 mt-3">
+         <label> Password
+            <input type="password" class="form-control" name="password" required>
+         </label>
+      </div>
    
-      <button type="submit">Login</button>
+      <button type="submit" class="btn btn-primary">Login</button>
    </form>
 </div>
 

@@ -1,16 +1,24 @@
-<form action="/auth/signup" method="POST">
-   <label> Username
-      <input type="text" name="username" placeholder="Ej. Poncho1234" required>
-   </label>
-   <label> Email
-      <input type="email" name="email" placeholder="Ej. poncho112233@ironhack.com" required>
-   </label>
-   <label> Password
-      <input type="password" name="password" required minlength="8">
-   </label>
-
-   <button type="submit">Signup</button>
-</form>
+<div>
+   <form action="/auth/signup" method="POST">
+      <div class="mb-3">
+         <label> Username
+            <input type="text" name="username" class="form-control" placeholder="Ej. Poncho1234" required>
+         </label>
+      </div>
+      <div class="mb-3">
+         <label> Email
+            <input type="email" name="email" class="form-control" placeholder="Ej. poncho112233@ironhack.com" required>
+         </label>
+      </div>
+      <div class="mb-3">
+         <label> Password
+            <input type="password" name="password" class="form-control" placeholder="Ej. ********" required minlength="8">
+         </label>
+      </div>
+   
+      <button type="submit" class="btn btn-primary">Signup</button>
+   </form>
+</div>
 
 {{#if errorMessage}}
    {{errorMessage}}

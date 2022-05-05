@@ -1,11 +1,26 @@
-<div id="form-media">
-    <form action="/media/create-new-media" method="POST" enctype="multipart/form-data">
-    <label> Name
-      <input type="text" name="name" required>
-    </label>
-      <br>
-      <br>
-    <label> Category
+<form action="/media/create-new-media" method="POST" enctype="multipart/form-data">
+  <div class="mb-3 mt-3">
+    <label class="form-label">Name:</label>
+    <input type="text" class="form-control" id="email" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Description:</label>
+    <input type="text" class="form-control" id="pwd" name="description" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Genre:</label>
+    <input type="text" class="form-control" id="pwd" name="genre" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Year:</label>
+    <input type="date" class="form-control" id="pwd" name="year" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Rirector:</label>
+    <input type="text" class="form-control" id="pwd" name="director" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Category:
       <select name="category">
         <option>Anime</option>
         <option>Music</option>
@@ -13,33 +28,11 @@
         <option>Movie</option>
       </select>
     </label>
-      <br>
-      <br>
-    <label> Description
-      <input type="text" name="description" required>
-    </label>
-      <br>
-      <br>
-    <label> Genre
-      <input type="text" name="genre" required>
-    </label>
-      <br>
-      <br>
-    <label> Year
-      <input type="date" name="year" required>
-    </label>
-      <br>
-      <br>
-    <label> Director
-      <input type="text" name="director" required>
-    </label>
-      <br>
-      <br>
-    <label>Image
+  </div>
+  <div class="mb-3">
+    <label>Image:
       <input type="file" name="imageUrl" accept="image/*">
     </label>
-      <br>
-      <br>
-        <button type="submit">Create</button>
-    </form>
-</div>
+  </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
