@@ -10,6 +10,7 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 //IMPORT MODELS
 const Media = require("../models/Media.model");
 const Review = require("../models/Review.model");
+const UserModel = require("../models/User.model");
 
 //ROUTER MEDIA
 router.get("/movies", (req, res, next) => {
@@ -45,9 +46,7 @@ router.get("/create-new-media", isLoggedIn, (req, res, next) => {
   res.render("media/create-new-media");
 });
 
-router.post(
-  "/create-new-media",
-  fileUploader.single("imageUrl"),
+router.post("/create-new-media",isLoggedIn, fileUploader.single("imageUrl"),
   (req, res, next) => {
     const { path } = req.file;
     Media.create({ ...req.body, imageUrl: path })
@@ -74,7 +73,7 @@ router.get("/create-new-review", isLoggedIn, (req, res, next) => {
   res.render("media/create-new-review");
 });
 
-router.post("/create-new-review", (req, res, next) => {
+router.post("/create-new-review", isLoggedIn, (req, res, next) => {
   Review.create(req.body).then(res.redirect("/"));
 });
 
@@ -86,6 +85,5 @@ router.get("/:media", (req, res, next) => {
     res.render("media/media-page", mediaData);
   });
 });
-
 //EXPORTS
 module.exports = router;

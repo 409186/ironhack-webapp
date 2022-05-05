@@ -3,13 +3,13 @@ const { Schema, model } = require("mongoose");
 const reviewSchema = new Schema(
   {
     User_Id: {
-      type: String
+      type: Schema.Types.ObjectId,
+      ref: "Media",
     },
 
-    mediaId: {
-      type: String,
-      required: true,
-      unique: true,
+    MediaId: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
     },
 
     review: {
