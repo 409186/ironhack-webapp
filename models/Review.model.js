@@ -4,7 +4,14 @@ const reviewSchema = new Schema(
   {
     user_Id: {
       type: Schema.Types.ObjectId,
+      ref: "User",
+      unique: false
+    },
+
+    media_Id: {
+      type: Schema.Types.ObjectId,
       ref: "Media",
+      unique: false
     },
  
     review: {
