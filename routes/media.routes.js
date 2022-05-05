@@ -23,7 +23,6 @@ router.get("/movies", (req, res, next) => {
 router.get("/anime", (req, res, next) => {
   Media.find({ category: "Anime" }).then((animesData) => {
     res.render("media/anime", {animesData});
-    console.log(animesData);
   });
 });
 
@@ -51,7 +50,6 @@ router.post("/create-new-media",isLoggedIn, fileUploader.single("imageUrl"),
     const { path } = req.file;
     Media.create({ ...req.body, imageUrl: path })
       .then((newMedia) => {
-        console.log("New Media =>", newMedia);
         if (newMedia.category === "Documentary") {
           res.redirect("/media/documentaries");
         } else if (newMedia.category === "Anime") {
@@ -74,7 +72,9 @@ router.get("/create-new-review", isLoggedIn, (req, res, next) => {
 });
 
 router.post("/create-new-review", isLoggedIn, (req, res, next) => {
-  Review.create(req.body).then(res.redirect("/"));
+  Review.create(req.body)
+  .then(res.redirect("/"))
+  .catch(console.log);
 });
 
 //ROUTER FOR INDIVIDUAL MEDIA
