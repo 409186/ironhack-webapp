@@ -1,8 +1,35 @@
-individual page
-<p>{{name}}</p>
-<p>{{description}}</p>
-<p>{{genre}}</p>
-<p>{{year}}</p>
-<p>{{director}}</p>
-<img src="{{imageUrl}}" alt="Pokemon" />
-<a href="/media/{{id}}">Create a Review</a>
+{{! MEDIA INFORMATION }}
+    <h1>{{name}}</h1>
+<div class="d-flex">
+  <div class="container" width="200">
+    <img src="{{imageUrl}}" class="img-thumbnail" alt="Media Image"/>
+  </div>
+
+  <div class="container">
+    <h2>{{year}} Created by: {{director}}</h2>
+    <p>{{description}}</p>
+    <p>{{genre}}</p>
+  </div>
+
+</div>
+
+<form action="/media/create-new-review" method="post">
+  <div class="mb-3 mt-3">
+          <textarea id="media_Id" name="media_Id" hidden>{{id}}</textarea>
+
+    <label for="review" class="form-label">Review:</label>
+    <textarea type="text" class="form-control" id="review" placeholder="Type your Review" name="review"></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label for="calification" class="form-label">Calification</label>
+    <input type="number" class="form-control" id="calification" placeholder="0" name="calification" min="1" max="5">
+  </div>
+
+  <div class="form-check mb-3">
+    <label class="form-check-label">
+      <input class="form-check-input" type="radio" name="like" value="true"> Loved it?
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>

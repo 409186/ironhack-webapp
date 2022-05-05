@@ -67,12 +67,7 @@ router.post("/create-new-media",isLoggedIn, fileUploader.single("imageUrl"),
   }
 );
 
-//ROUTER CREATE-NEW-REVIEW
-router.get("/create-new-review", isLoggedIn, (req, res, next) => {
-  res.render("media/create-new-review");
-});
-
-router.post("/create-new-review", isLoggedIn, (req, res, next) => {
+router.post("/:media", isLoggedIn, (req, res, next) => {
   Review.create(req.body)
   .then(
     res.redirect("/")
@@ -83,9 +78,11 @@ router.post("/create-new-review", isLoggedIn, (req, res, next) => {
 router.get("/:media", (req, res, next) => {
   const mediaId = req.params.media;
 
-  Media.findById(`${mediaId}`).then((mediaData) => {
+  Media.findById(`${mediaId}`)
+  .then((mediaData) => {
     res.render("media/media-page", mediaData);
   });
 });
+
 //EXPORTS
 module.exports = router;
