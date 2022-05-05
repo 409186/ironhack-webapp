@@ -18,3 +18,7 @@ h1 {
   border: none;
   color: white;
 }
+
+#cuerpo {
+  background-color: rgba(112, 109, 109, 0.28);
+}
