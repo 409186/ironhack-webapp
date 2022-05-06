@@ -6,10 +6,10 @@ TODO:
 [/]Agregar reviews para cada uno
 []Boton de log out
 
-[]Cambiar layout de informacion individual
+[/]Cambiar layout de informacion individual
 [/]Cambiar layout de reviews
 
-[]Hacer mas bonito cada introduccion a pagina de medias
+[/]Hacer mas bonito cada introduccion a pagina de medias
 []Desaparecer botones de login y Sign up cuando estes en conectado
 
 
