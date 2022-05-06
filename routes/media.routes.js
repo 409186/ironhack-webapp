@@ -96,12 +96,12 @@ router.post("/:media", isLoggedIn, (req, res, next) => {
 //ROUTER FOR INDIVIDUAL MEDIA
 router.get("/:media", (req, res, next) => {
   const mediaId = req.params.media;
-
+  const userData = req.session.user;
   Media.findById(`${mediaId}`)
     .then((mediaData) => {
       Review.find({ media_Id: `${mediaId}` })
         .then((reviewData) => {
-          res.render("media/media-page", { mediaData, reviewData });
+          res.render("media/media-page", { mediaData, reviewData, userData});
         })
         .catch(console.log);
     })

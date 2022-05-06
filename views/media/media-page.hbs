@@ -29,6 +29,7 @@
   <form action="/media/create-new-review" method="post" class="p-3">
     <div class="mb-3 mt-3">
       <textarea id="media_Id" name="media_Id" hidden>{{mediaData.id}}</textarea>
+      <textarea id="media_Id" name="user_Id" hidden>{{userData.username}}</textarea>
 
       <label for="review" class="form-label">Review:</label>
       <textarea
@@ -71,18 +72,17 @@
   <div class="card">
     <div class="card-header">
       <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
-        Polomx12 Says:
+        {{#if like}} <img src="/images/heart.png" alt="" srcset="" width="30px"> {{/if}}{{user_Id}} Says:  
       </a>
     </div>
     <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
       <div class="card-body">
         {{review}}
+        <br>
+       
       </div>
     </div>
   </div>
 </div>
   {{/each}}
-
 </div>
-
-

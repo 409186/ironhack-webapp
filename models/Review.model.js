@@ -3,8 +3,7 @@ const { Schema, model } = require("mongoose");
 const reviewSchema = new Schema(
   {
     user_Id: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
+      type: String,
       unique: false
     },
 
