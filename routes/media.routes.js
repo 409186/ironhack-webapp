@@ -90,7 +90,7 @@ router.post(
 );
 
 router.post("/:media", isLoggedIn, (req, res, next) => {
-  Review.create(req.body).then(res.redirect("/")).catch(console.log);
+  Review.create(req.body).then(res.redirect("/#")).catch(console.log);
 });
 
 //ROUTER FOR INDIVIDUAL MEDIA
@@ -99,7 +99,7 @@ router.get("/:media", (req, res, next) => {
 
   Media.findById(`${mediaId}`)
     .then((mediaData) => {
-      Review.find({})
+      Review.find({ media_Id: `${mediaId}` })
         .then((reviewData) => {
           res.render("media/media-page", { mediaData, reviewData });
         })

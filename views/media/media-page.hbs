@@ -1,50 +1,88 @@
 {{! MEDIA INFORMATION }}
-<h1>{{mediaData.name}}</h1>
-<div class="d-flex">
-  <div class="container" width="200">
-    <img src="{{mediaData.imageUrl}}" class="img-thumbnail" alt="Media Image" />
-  </div>
+<div class="container">
+  <h1 class="text-center p-2">{{mediaData.name}}</h1>
+</div>
 
-  <div class="container">
-    <h2>{{mediaData.year}} Created by: {{mediaData.director}}</h2>
-    <p>{{mediaData.description}}</p>
-    <p>{{mediaData.genre}}</p>
+<div class="container">
+  <div class="d-flex">
+
+    <div class="container" width="100">
+      <img
+        src="{{mediaData.imageUrl}}"
+        class="img-thumbnail"
+        alt="Media Image"
+      />
+    </div>
+
+    <div class="container">
+      <h3>{{mediaData.year}}, {{mediaData.director}}</h2>
+      <p>{{mediaData.description}}</p>
+      <p>{{mediaData.genre}}</p>
+    </div>
+
   </div>
 
 </div>
 
-<form action="/media/create-new-review" method="post">
-  <div class="mb-3 mt-3">
-    <textarea id="media_Id" name="media_Id" hidden>{{mediaData.id}}</textarea>
+<div class="container">
 
-    <label for="review" class="form-label">Review:</label>
-    <textarea
-      type="text"
-      class="form-control"
-      id="review"
-      placeholder="Type your Review"
-      name="review"
-    ></textarea>
-  </div>
+  <form action="/media/create-new-review" method="post" class="p-3">
+    <div class="mb-3 mt-3">
+      <textarea id="media_Id" name="media_Id" hidden>{{mediaData.id}}</textarea>
 
-  <div class="mb-3">
-    <label for="calification" class="form-label">Calification</label>
-    <input
-      type="number"
-      class="form-control"
-      id="calification"
-      placeholder="0"
-      name="calification"
-      min="1"
-      max="5"
-    />
-  </div>
+      <label for="review" class="form-label">Review:</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="review"
+        placeholder="Type your Review"
+        name="review"
+      ></textarea>
+    </div>
 
-  <div class="form-check mb-3">
-    <label class="form-check-label">
-      <input class="form-check-input" type="radio" name="like" value="true" />
-      Loved it?
-    </label>
+    <div class="mb-3">
+      <label for="calification" class="form-label">Calification</label>
+      <input
+        type="number"
+        class="form-control"
+        id="calification"
+        placeholder="0"
+        name="calification"
+        min="1"
+        max="5"
+      />
+    </div>
+
+    <div class="form-check mb-3">
+      <label class="form-check-label">
+        <input class="form-check-input" type="radio" name="like" value="true" />
+        Loved it?
+      </label>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+</div>
+
+<div class="container">
+
+  {{#each reviewData}}
+<div id="accordion">
+  <div class="card">
+    <div class="card-header">
+      <a class="btn" data-bs-toggle="collapse" href="#collapseOne">
+        Polomx12 Says:
+      </a>
+    </div>
+    <div id="collapseOne" class="collapse show" data-bs-parent="#accordion">
+      <div class="card-body">
+        {{review}}
+      </div>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
+  {{/each}}
+
+</div>
+
+
